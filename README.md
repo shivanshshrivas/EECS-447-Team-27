@@ -4,7 +4,7 @@
 ### Shivansh Shrivas (Primary Contact)
 - **Role**: Project Manager/Team Lead 
 - **Email**: shivansh@ku.edu
-- **Availability**: 
+- **Availability**: Mon-Fri after 5pm except Wednesdays, and anytime on weekends
 - **Computing Platform Experience**: VSCode, Git, Docker, Linux
 - **Programming Knowledge**: Python, C/C++, HTML/CSS, JavaScript, SQL
 
@@ -17,10 +17,10 @@
 
 ### Achinth Ulagapperoli
 - **Role**: Database Design and Requirements Engineer
-- **Email**: achinth
-- **Availability**: 
-- **Computing Platform Experience**: 
-- **Programming Knowledge**: 
+- **Email**: achinthu@ku.edu
+- **Availability**: TBD
+- **Computing Platform Experience**: TBD
+- **Programming Knowledge**: TBD
 
 ### Ansuman Sharma
 - **Role**: Software Lead
@@ -38,7 +38,7 @@
 
 ### Connor Williamson
 - **Role**: Software Lead II
-- **Email**: 
-- **Availability**: 
-- **Computing Platform Experience**: 
-- **Programming Knowledge**:
+- **Email**: connor.williamson@ku.edu
+- **Availability**: Anytime on the weekends
+- **Computing Platform Experience**: TBD
+- **Programming Knowledge**: TBD
