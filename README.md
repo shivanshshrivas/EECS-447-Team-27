@@ -18,9 +18,9 @@
 ### Achinth Ulagapperoli
 - **Role**: Database Design and Requirements Engineer
 - **Email**: achinthu@ku.edu
-- **Availability**: TBD
-- **Computing Platform Experience**: TBD
-- **Programming Knowledge**: TBD
+- **Availability**: Anytime on the weekends
+- **Computing Platform Experience**: VSCode, Git, Docker, Linux, Kubernetes
+- **Programming Knowledge**: Python, Javascript, Typescript, HTML/CSS, SQL, C/C++, MIPS
 
 ### Ansuman Sharma
 - **Role**: Software Lead
@@ -35,10 +35,3 @@
 - **Availability**: Thursday Mornings and Sundays
 - **Computing Platform Experience**: Docker, Linux Distros, NeoVim, FreeBSD
 - **Programming Knowledge**: Python, Bash, Go, Java, C, C++, JS, Rust
-
-### Connor Williamson
-- **Role**: Software Lead II
-- **Email**: connor.williamson@ku.edu
-- **Availability**: Anytime on the weekends
-- **Computing Platform Experience**: TBD
-- **Programming Knowledge**: TBD
