@@ -49,7 +49,7 @@ export default function QueryExecutor() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-10 gap-6" style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-foreground)' }}>
+    <main className="min-h-screen flex flex-col items-center px-4 py-10 gap-6" style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-foreground)' }}>
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -57,10 +57,14 @@ export default function QueryExecutor() {
         className="text-center"
       >
         <h1 className="text-4xl font-bold mb-2">MetaMinds LMS</h1>
-        <p className="text-md" style={{ color: 'var(--color-muted)' }}>Books, Magazines and more</p>
+        <p className="text-md" style={{ color: 'var(--color-secondary)' }}>Books, Magazines and more</p>
       </motion.div>
 
-      <Card className="shadow-md w-full max-w-5xl p-6 rounded-xl" style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}>
+      <motion.Card
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="shadow-md w-full max-w-5xl p-6 rounded-xl" style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}>
         <CardContent>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
@@ -88,9 +92,9 @@ export default function QueryExecutor() {
 
             {data.length > 0 && (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
                 className="max-w-full overflow-x-auto border rounded-lg"
                 style={{ borderColor: 'var(--color-border)' }}
               >
@@ -118,12 +122,16 @@ export default function QueryExecutor() {
             )}
           </div>
         </CardContent>
-      </Card>
+      </motion.Card>
 
-      <p className="text-sm" style={{ color: 'var(--color-muted)' }}>
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.4 }} 
+      className="text-sm" style={{ color: 'var(--color-secondary)' }}>
         View the code on{' '}
         <a
-          href="https://github.com/EECS-447-Team-27"
+          href="https://github.com/shivanshshrivas/EECS-447-Team-27"
           target="_blank"
           rel="noopener noreferrer"
           className="underline"
@@ -131,7 +139,7 @@ export default function QueryExecutor() {
         >
           GitHub
         </a>
-      </p>
+      </motion.p>
     </main>
   )
 }
