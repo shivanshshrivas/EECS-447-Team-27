@@ -13,6 +13,7 @@ import {
   TableRow
 } from '@/components/ui/table'
 import { supabase } from '@/lib/supabase'
+import { motion } from 'framer-motion'
 
 export default function QueryExecutor() {
   const [query, setQuery] = useState('')
@@ -40,6 +41,7 @@ export default function QueryExecutor() {
       setData(parsed)
       setColumns(Object.keys(parsed[0] || {}))
     } catch (err) {
+      console.error("Error:", err)
       setError('Execution failed')
     } finally {
       setLoading(false)
@@ -47,48 +49,89 @@ export default function QueryExecutor() {
   }
 
   return (
-    <Card className="bg-zinc-900 text-white shadow-lg w-full max-w-4xl p-6">
-      <CardContent>
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-4">
-          <Input
-            className="bg-input text-foreground"
-            placeholder="Type a query..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => {
-                if (e.key === 'Enter') executeQuery()
-            }}
-            />
-            <Button onClick={executeQuery} disabled={loading}>
-              {loading ? 'Running...' : 'Execute'}
-            </Button>
-          </div>
-          {error && <p className="text-red-500">{error}</p>}
-          {data.length > 0 && (
-            <div className="overflow-auto rounded-md border border-zinc-700">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    {columns.map((col) => (
-                      <TableHead key={col} className="text-white">{col}</TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {data.map((row, idx) => (
-                    <TableRow key={idx}>
-                      {columns.map((col) => (
-                        <TableCell key={col} className="text-white">{row[col]?.toString()}</TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-10 gap-6" style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-foreground)' }}>
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <h1 className="text-4xl font-bold mb-2">MetaMinds LMS</h1>
+        <p className="text-md" style={{ color: 'var(--color-muted)' }}>Books, Magazines and more</p>
+      </motion.div>
+
+      <Card className="shadow-md w-full max-w-5xl p-6 rounded-xl" style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}>
+        <CardContent>
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <Input
+                className="border focus:ring-2 text-base"
+                style={{ backgroundColor: 'white', color: 'var(--color-foreground)', borderColor: 'var(--color-border)' }}
+                placeholder="Type a query..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') executeQuery()
+                }}
+              />
+              <Button
+                onClick={executeQuery}
+                disabled={loading}
+                className="text-white text-sm px-4 py-2 rounded-md"
+                style={{ backgroundColor: 'var(--color-primary)' }}
+              >
+                {loading ? 'Running...' : 'Execute'}
+              </Button>
             </div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+
+            {data.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="max-w-full overflow-x-auto border rounded-lg"
+                style={{ borderColor: 'var(--color-border)' }}
+              >
+                <div className="inline-block min-w-fit">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        {columns.map((col) => (
+                          <TableHead key={col} className="font-semibold text-sm" style={{ color: 'var(--color-foreground)' }}>{col}</TableHead>
+                        ))}
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {data.map((row, idx) => (
+                        <TableRow key={idx}>
+                          {columns.map((col) => (
+                            <TableCell key={col}>{row[col]?.toString()}</TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
+      <p className="text-sm" style={{ color: 'var(--color-muted)' }}>
+        View the code on{' '}
+        <a
+          href="https://github.com/EECS-447-Team-27"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+          style={{ color: 'var(--color-primary)' }}
+        >
+          GitHub
+        </a>
+      </p>
+    </main>
   )
 }
