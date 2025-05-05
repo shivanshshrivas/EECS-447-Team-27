@@ -56,7 +56,7 @@ export default function QueryExecutor() {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold mb-2">MetaMinds LMS</h1>
+        <h1 className="text-4xl font-bold font-inter mb-2">MetaMinds LMS</h1>
         <p className="text-md" style={{ color: 'var(--color-secondary)' }}>Books, Magazines and more</p>
       </motion.div>
 
@@ -67,26 +67,37 @@ export default function QueryExecutor() {
       className="shadow-md w-full max-w-5xl p-6 rounded-xl" style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}>
         <CardContent>
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <Input
-                className="border focus:ring-2 text-base"
-                style={{ backgroundColor: 'white', color: 'var(--color-foreground)', borderColor: 'var(--color-border)' }}
-                placeholder="Type a query..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') executeQuery()
-                }}
-              />
-              <Button
-                onClick={executeQuery}
-                disabled={loading}
-                className="text-white text-sm px-4 py-2 rounded-md"
-                style={{ backgroundColor: 'var(--color-primary)' }}
-              >
-                {loading ? 'Running...' : 'Execute'}
-              </Button>
-            </div>
+          <div className="flex flex-col gap-4">
+  <div className="flex items-start gap-4">
+    <textarea
+      className="w-full overflow-x-hidden max-h-[150px] resize-none px-4 py-2 font-poppins text-[var(--color-foreground)] bg-white border border-[var(--color-border)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] shadow-lg text-base"
+      placeholder="Type a query..."
+      value={query}
+      onChange={(e) => {
+        setQuery(e.target.value);
+        // Auto-resize
+        e.target.style.height = 'auto';
+        e.target.style.height = `${e.target.scrollHeight}px`;
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          executeQuery();
+        }
+      }}
+      rows={1}
+    />
+    <Button
+      onClick={executeQuery}
+      disabled={loading}
+      className="text-white text-sm px-4 py-2 rounded-md"
+      style={{ backgroundColor: 'var(--color-primary)' }}
+    >
+      {loading ? 'Running...' : 'Execute'}
+    </Button>
+  </div>
+</div>
+
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
