@@ -1,5 +1,5 @@
 # MetaMinds Library Database Management System
-##Live App: https://eecs-447-team-27.vercel.app
+## Live App: https://eecs-447-team-27.vercel.app
 
 ## Meet the Team
 ### Shivansh Shrivas (Primary Contact)
